@@ -1,3 +1,0 @@
-# Interium LUA API
-
-test
