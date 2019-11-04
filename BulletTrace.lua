@@ -24,7 +24,7 @@ local function Func(Event)
 
     local Player = IEntityList.GetPlayer(IEngine.GetLocalPlayer())
     local col = Menu.GetColor("cBuletTrace")
-
+    Print(tostring(col.a))
     local BeamInfo = BeamInfo_t.new()
     BeamInfo.m_nType = 0
     BeamInfo.m_pszModelName = "sprites/purplelaser1.vmt"
