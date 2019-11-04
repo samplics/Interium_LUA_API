@@ -35,13 +35,13 @@ local function Func(Event)
     BeamInfo.m_flEndWidth = 3.0
     BeamInfo.m_flFadeLength = 0.0
     BeamInfo.m_flAmplitude = 2.0
-    BeamInfo.m_flBrightness = col.a * 255
+    BeamInfo.m_flBrightness = col.a
     BeamInfo.m_flSpeed = 0.5
     BeamInfo.m_nStartFrame = 0.
     BeamInfo.m_flFrameRate = 0.
-    BeamInfo.m_flRed = col.r * 255
-    BeamInfo.m_flGreen = col.g * 255
-    BeamInfo.m_flBlue = col.b * 255
+    BeamInfo.m_flRed = col.r
+    BeamInfo.m_flGreen = col.g
+    BeamInfo.m_flBlue = col.b
     BeamInfo.m_nSegments = 2
     BeamInfo.m_bRenderable = true
     BeamInfo.m_nFlags = 0
