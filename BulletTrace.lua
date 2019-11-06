@@ -2,8 +2,8 @@
 Menu.Spacing()
 Menu.Separator()
 Menu.Spacing()
-Menu.Checkbox("Bullet Trace", "bBuletTrace", false)
-Menu.ColorPicker("Bullet Trace Color", "cBuletTrace", 255, 0, 0, 255)
+Menu.Checkbox("Bullet Trace", "bBuletTrace", true)
+Menu.ColorPicker("Bullet Trace Color", "cBuletTrace", 255, 255, 255, 255)
 
 -- Init Event
 IGameEventListener.AddEvent("bullet_impact", false)
@@ -13,6 +13,9 @@ local function Func(Event)
     if (Menu.GetBool("bBuletTrace") == false) then
         return
     end 
+    if (Utils.IsLocal() == false) then 
+        return
+    end
     if (Event:GetName("bullet_impact") ~= "bullet_impact") or (Event:GetInt("x", 0) == 0) then
         return
     end 
@@ -24,7 +27,7 @@ local function Func(Event)
 
     local Player = IEntityList.GetPlayer(IEngine.GetLocalPlayer())
     local col = Menu.GetColor("cBuletTrace")
-    Print(tostring(col.a))
+
     local BeamInfo = BeamInfo_t.new()
     BeamInfo.m_nType = 0
     BeamInfo.m_pszModelName = "sprites/purplelaser1.vmt"
@@ -49,9 +52,10 @@ local function Func(Event)
     BeamInfo.m_vecEnd = Vector.new(Event:GetInt("x", 0), Event:GetInt("y", 0), Event:GetInt("z", 0))
 
     local Beam = IRenderBeams.CreateBeamPoints(BeamInfo)
-    if Beam then
-        IRenderBeams.DrawBeam(Beam)
-    end
+    -- \/ USLES SHIT WITH CRASH \/
+    --if Beam == true then
+    --    IRenderBeams.DrawBeam(Beam)
+    --end
 end
 
 -- Hook
