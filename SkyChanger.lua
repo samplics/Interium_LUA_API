@@ -1,6 +1,10 @@
 -- Donload skyboxes - https://mega.nz/#!NhVC3QhZ!qmF8HmSoOJfWRoUGJ96k_Fk_EMcQcKltM9vD2gJCm8Q
 -- Files to "...\steamapps\common\Counter-Strike Global Offensive\csgo\materials\skybox"
 
+-- Init Menu
+Menu.Spacing()
+Menu.Separator()
+Menu.Spacing()
 Menu.Combo( "bSkyBox", "iSkyBox", {"Defaul","Space","Mountains","Orange Space","Sky of day","borealis","Purp space","Orange Sunshine","Blue Sky" });
 local IsSky = -1
 
@@ -31,7 +35,7 @@ function ChangeSkyBox()
 end
 
 function FireEventClientSideThink(Event)
-	if (Event:GetName("game_newmap") ~= "game_newmap") then
+	if (Event:GetName() ~= "game_newmap") then
 		return
 	end
 

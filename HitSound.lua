@@ -12,7 +12,7 @@ local function Func(Event)
         return
     end
 
-    if Event:GetName("player_hurt", 0) == "player_hurt" then
+    if (Event:GetName() == "player_hurt") then
         local IsLocalShot = IEngine.GetPlayerForUserID(Event:GetInt("attacker", 0)) == IEngine.GetLocalPlayer()
         if IsLocalShot then
             PlaySound("C:/Interium/HitSound.wav")

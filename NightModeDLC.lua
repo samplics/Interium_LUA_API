@@ -1,3 +1,7 @@
+-- Init Menu
+Menu.Spacing()
+Menu.Separator()
+Menu.Spacing()
 Menu.SliderFloat("Nightmode", "fl_nightmode", 0.01, 1.0, "%.2f", 0.1)
 Menu.SliderFloat("Model Ambient", "fl_modelambient", 1.0, 10.0, 5, 2.5)
 Menu.SliderFloat("Bloom Scale", "fl_bloomscale", 1.0, 10.0, 5, 10.0)
@@ -13,7 +17,7 @@ local m_flCustomAutoExposureMin = Hack.GetOffset("DT_EnvTonemapController", "m_f
 local m_flCustomAutoExposureMax = Hack.GetOffset("DT_EnvTonemapController", "m_flCustomAutoExposureMax")
 local m_flCustomBloomScale = Hack.GetOffset("DT_EnvTonemapController", "m_flCustomBloomScale")
 
-local function GlowingModels()
+local function NightMode()
     cvar:SetFloat(Menu.GetFloat("fl_modelambient"))
 
     for i = 1, IEntityList.GetHighestEntityIndex() do  
@@ -29,6 +33,10 @@ local function GlowingModels()
             ent:SetPropFloat(m_flCustomBloomScale, bloom)
         end
     end
+
+    Old_fl_nightmode = Menu.GetFloat("fl_nightmode")
+    Old_fl_modelambient = Menu.GetFloat("fl_modelambient")
+    Old_fl_bloomscale = Menu.GetFloat("fl_bloomscale")
 end
 
 
@@ -39,23 +47,15 @@ function PaintTraverse()
 		return
     end
     
-    GlowingModels()
-
-    Old_fl_nightmode = Menu.GetFloat("fl_nightmode")
-    Old_fl_modelambient = Menu.GetFloat("fl_modelambient")
-    Old_fl_bloomscale = Menu.GetFloat("fl_bloomscale")
+    NightMode()
 end
 Hack.RegisterCallback("PaintTraverse", PaintTraverse)
 
 function FireEventClientSideThink(Event)
-	if (Event:GetName("game_newmap") ~= "game_newmap") then
+	if (Event:GetName() ~= "cs_pre_restart") then
 		return
     end
-    
-    GlowingModels()
 
-    Old_fl_nightmode = Menu.GetFloat("fl_nightmode")
-    Old_fl_modelambient = Menu.GetFloat("fl_modelambient")
-    Old_fl_bloomscale = Menu.GetFloat("fl_bloomscale")
+    NightMode()
 end
 Hack.RegisterCallback("FireEventClientSideThink", FireEventClientSideThink)

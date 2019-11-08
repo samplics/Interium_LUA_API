@@ -16,7 +16,7 @@ local function Func(Event)
     if (Utils.IsLocal() == false) then 
         return
     end
-    if (Event:GetName("bullet_impact") ~= "bullet_impact") or (Event:GetInt("x", 0) == 0) then
+    if (Event:GetName() ~= "bullet_impact") or (Event:GetInt("x", 0) == 0) then
         return
     end 
 
