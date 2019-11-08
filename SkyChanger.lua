@@ -1,3 +1,6 @@
+-- Donload skyboxes - https://mega.nz/#!NhVC3QhZ!qmF8HmSoOJfWRoUGJ96k_Fk_EMcQcKltM9vD2gJCm8Q
+-- Files to "...\steamapps\common\Counter-Strike Global Offensive\csgo\materials\skybox"
+
 Menu.Combo( "bSkyBox", "iSkyBox", {"Defaul","Space","Mountains","Orange Space","Sky of day","borealis","Purp space","Orange Sunshine","Blue Sky" });
 local IsSky = -1
 
