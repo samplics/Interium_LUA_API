@@ -116,51 +116,51 @@ function PaintTraverse()
 	Strong, ChamsType, ChamsR, ChamsG, ChamsB = Rainbow(Strong, ChamsType, ChamsR, ChamsG, ChamsB)
 
 	if (Menu.GetBool("color_chams_enemy_visible")) then
-		SetColor(Vars.color_chams_enemy_visible, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_chams_enemy_visible, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_chams_enemy_visible).a))
 	end
 	if (Menu.GetBool("color_chams_enemy_hidden")) then
-		SetColor(Vars.color_chams_enemy_hidden, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_chams_enemy_hidden, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_chams_enemy_hidden).a))
 	end
 	if (Menu.GetBool("color_chams_team_visible")) then
-		SetColor(Vars.color_chams_team_visible, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_chams_team_visible, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_chams_team_visible).a))
 	end
 	if (Menu.GetBool("color_chams_team_hidden")) then
-		SetColor(Vars.color_chams_team_hidden, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_chams_team_hidden, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_chams_team_hidden).a))
 	end
 	if (Menu.GetBool("color_glow_enemy_visible")) then
-		SetColor(Vars.color_glow_enemy_visible, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_glow_enemy_visible, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_glow_enemy_visible).a))
 	end
 	if (Menu.GetBool("color_glow_enemy_hidden")) then
-		SetColor(Vars.color_glow_enemy_hidden, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_glow_enemy_hidden, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_glow_enemy_hidden).a))
 	end
 	if (Menu.GetBool("color_glow_team_visible")) then
-		SetColor(Vars.color_glow_team_visible, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_glow_team_visible, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_glow_team_visible).a))
 	end
 	if (Menu.GetBool("color_glow_team_hidden")) then
-		SetColor(Vars.color_glow_team_hidden, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_glow_team_hidden, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_glow_team_hidden).a))
 	end
 
 	if (Menu.GetBool("color_chams_local_weapon")) then
-		SetColor(Vars.color_chams_local_weapon, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_chams_local_weapon, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_chams_local_weapon).a))
 	end
 	if (Menu.GetBool("color_chams_local_sleeve")) then
-		SetColor(Vars.color_chams_local_sleeve, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_chams_local_sleeve, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_chams_local_sleeve).a))
 	end
 	if (Menu.GetBool("color_chams_local_arms")) then
-		SetColor(Vars.color_chams_local_arms, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_chams_local_arms, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_chams_local_arms).a))
 	end
 	if (Menu.GetBool("color_glow_local_weapon")) then
-		SetColor(Vars.color_glow_local_weapon, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_glow_local_weapon, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_glow_local_weapon).a))
 	end
 	if (Menu.GetBool("color_glow_local_sleeve")) then
-		SetColor(Vars.color_glow_local_sleeve, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_glow_local_sleeve, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_glow_local_sleeve).a))
 	end
 	if (Menu.GetBool("color_glow_local_arms")) then
-		SetColor(Vars.color_glow_local_arms, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_glow_local_arms, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_glow_local_arms).a))
 	end
 
 	if (Menu.GetBool("color_esp_sound")) then
-		SetColor(Vars.color_esp_sound, Color.new(ChamsR, ChamsG, ChamsB, 255))
+		SetColor(Vars.color_esp_sound, Color.new(ChamsR, ChamsG, ChamsB, GetColor(Vars.color_esp_sound).a))
 	end
 end
 Hack.RegisterCallback("PaintTraverse", PaintTraverse)
