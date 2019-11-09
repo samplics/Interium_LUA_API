@@ -35,7 +35,7 @@ function ChangeSkyBox()
 end
 
 function FireEventClientSideThink(Event)
-	if (Event:GetName() ~= "game_newmap") then
+	if (Event:GetName() ~= "cs_pre_restart") then
 		return
 	end
 

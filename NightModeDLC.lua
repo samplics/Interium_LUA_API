@@ -46,7 +46,7 @@ function PaintTraverse()
         (Menu.GetFloat("fl_bloomscale") == Old_fl_bloomscale) then
 		return
     end
-    
+
     NightMode()
 end
 Hack.RegisterCallback("PaintTraverse", PaintTraverse)
