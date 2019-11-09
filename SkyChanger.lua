@@ -5,7 +5,7 @@
 Menu.Spacing()
 Menu.Separator()
 Menu.Spacing()
-Menu.Combo( "bSkyBox", "iSkyBox", {"Defaul","Space","Mountains","Orange Space","Sky of day","borealis","Purp space","Orange Sunshine","Blue Sky" });
+Menu.Combo( "bSkyBox", "iSkyBox", {"Defaul","Space","Mountains","Orange Space","Sky of day","Borealis","Purp space","Orange Sunshine","Blue Sky" });
 local IsSky = -1
 
 function ChangeSkyBox()

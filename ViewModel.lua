@@ -1,6 +1,3 @@
-ICvar.FindVar("sv_competitive_minspec"):SetInt(0)
-ICvar.FindVar("cl_bobcycle"):SetFloat(1)
-
 local CvarX = ICvar.FindVar("viewmodel_offset_x")
 local CvarY = ICvar.FindVar("viewmodel_offset_y")
 local CvarZ = ICvar.FindVar("viewmodel_offset_z")
@@ -20,6 +17,9 @@ function PaintTraverse()
     if (x_old == Menu.GetFloat("viewmodel_offset_x")) and (y_old == Menu.GetFloat("viewmodel_offset_y")) and (z_old == Menu.GetFloat("viewmodel_offset_z")) then 
         return
     end
+
+    ICvar.FindVar("sv_competitive_minspec"):SetInt(0)
+    ICvar.FindVar("cl_bobcycle"):SetFloat(1)
 
     CvarX:SetFloat(Menu.GetFloat("viewmodel_offset_x"))
     CvarY:SetFloat(Menu.GetFloat("viewmodel_offset_y"))

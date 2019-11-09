@@ -1,14 +1,18 @@
--- Init Event
-IGameEventListener.AddEvent("vote_options", true)
+local SpoofType = 0
 
 -- Func
 local function Func(Event)
-    if (Event:GetName() ~= "vote_options") then
+    if (Event:GetName() ~= "vote_cast") then
         return
     end
 
-    IEngine.ExecuteClientCmd("callvote swapteams")
-    IEngine.ExecuteClientCmd("callvote scrambleteams")
+    if (SpoofType == 0) then
+        IEngine.ExecuteClientCmd("callvote swapteams")
+        SpoofType = 1
+    else
+        IEngine.ExecuteClientCmd("callvote scrambleteams")
+        SpoofType = 0
+    end
 end
 
 -- Hook
