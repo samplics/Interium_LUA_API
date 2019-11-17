@@ -52,7 +52,7 @@ end
 Hack.RegisterCallback("PaintTraverse", PaintTraverse)
 
 function FireEventClientSideThink(Event)
-	if (Event:GetName() ~= "cs_pre_restart") then
+	if (Event:GetName() ~= "cs_pre_restart") and (Event:GetName() ~= "game_newmap") then
 		return
     end
 
