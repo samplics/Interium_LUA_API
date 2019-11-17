@@ -6,9 +6,9 @@ Menu.KeyBind("BHop Add New Key", "iBHopAddBind", 0)
 
 local IN_JUMP = 1 -- bit of IN_JUMP for cmd.buttons
 
-local function BHopAddBind(cmd, p_bSendPacket)
+local function BHopAddBind(pCmd, pSendPacket)
     if InputSys.IsKeyDown(Menu.GetInt("iBHopAddBind")) then
-        SetBit(cmd.buttons, IN_JUMP)
+        pCmd.buttons = SetBit(pCmd.buttons, IN_JUMP)
     end 
 end   
 
