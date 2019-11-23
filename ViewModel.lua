@@ -13,11 +13,7 @@ Menu.SliderFloat("View Model X", "viewmodel_offset_x", -50, 50, "%.1f", CvarX:Ge
 Menu.SliderFloat("View Model Y", "viewmodel_offset_y", -50, 50, "%.1f", CvarY:GetFloat())
 Menu.SliderFloat("View Model Z", "viewmodel_offset_z", -50, 50, "%.1f", CvarZ:GetFloat())
 
-function PaintTraverse()
-    if (x_old == Menu.GetFloat("viewmodel_offset_x")) and (y_old == Menu.GetFloat("viewmodel_offset_y")) and (z_old == Menu.GetFloat("viewmodel_offset_z")) then 
-        return
-    end
-
+function ChangeVar()
     ICvar.FindVar("sv_competitive_minspec"):SetInt(0)
     ICvar.FindVar("cl_bobcycle"):SetFloat(1)
 
@@ -29,4 +25,21 @@ function PaintTraverse()
     y_old = CvarY:GetFloat()
     z_old = CvarZ:GetFloat()
 end
+
+function PaintTraverse()
+    if (x_old == Menu.GetFloat("viewmodel_offset_x")) and (y_old == Menu.GetFloat("viewmodel_offset_y")) and (z_old == Menu.GetFloat("viewmodel_offset_z")) then 
+        return
+    end
+
+    ChangeVar()
+end
 Hack.RegisterCallback("PaintTraverse", PaintTraverse)
+
+function FireEventClientSideThink(Event)
+	if (Event:GetName() ~= "cs_pre_restart") and (Event:GetName() ~= "game_newmap") then
+		return
+	end
+
+	ChangeVar()
+end
+Hack.RegisterCallback("FireEventClientSideThink", FireEventClientSideThink)
