@@ -1,5 +1,6 @@
-local iKill_Offset = Hack.GetOffset("DT_PlayerResource", "m_iKill") -- Get m_iKill offset
-local dwPlayerResource = 51822652 -- Address for PlayerResource pointer
+local iKill_Offset = 3116 -- Address for m_iKill pointer [not OUTDEAD, but can in future]
+local dwPlayerResource = 51822796 -- Address for PlayerResource pointer [OUTDEAD, need new]
+local PlayerResource_size = 4 -- Size of PlayerResource struct [not OUTDEAD, but can in future]
 
 local Inited = 0
 local Kills = 69
@@ -15,7 +16,7 @@ function TestHardFakeScore()
     local pPlayerResource = GetIntA(ClientDLL + dwPlayerResource) -- Get pointer for geting value (Address) from it
     Print(tostring(pPlayerResource))
 
-    local LocalKillsAddress = pPlayerResource + iKill_Offset + IEngine.GetLocalPlayer() * 4 -- Geted address + offset (iKill_Offset + g_LocalPlayer ID in EntList * size of struct)
+    local LocalKillsAddress = pPlayerResource + iKill_Offset + IEngine.GetLocalPlayer() * PlayerResource_size -- Geted address + offset (iKill_Offset + g_LocalPlayer ID in EntList * size of struct)
     local LocalKillsReadOnly = GetIntA(LocalKillsAddress) -- geting value (Kills) from variable in this address
     Print(tostring(LocalKillsReadOnly))
 
