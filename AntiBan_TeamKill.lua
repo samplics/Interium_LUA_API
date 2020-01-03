@@ -20,7 +20,6 @@ function FireEventClientSideThink(Event)
 	end
 	
 	if (Event:GetName() == "player_death") then
-		Print(Event:GetName())
         local IsLocalShot = IEngine.GetPlayerForUserID(Event:GetInt("attacker", 0)) == IEngine.GetLocalPlayer()
 		if IsLocalShot then
 			local Player = IEntityList.GetPlayer(IEngine.GetPlayerForUserID(Event:GetInt("userid", 0)))
@@ -31,7 +30,6 @@ function FireEventClientSideThink(Event)
 	end 
 
 	if (Event:GetName() == "player_hurt") then
-		Print(Event:GetName())
         local IsLocalShot = IEngine.GetPlayerForUserID(Event:GetInt("attacker", 0)) == IEngine.GetLocalPlayer()
 		if IsLocalShot then
 			local Player = IEntityList.GetPlayer(IEngine.GetPlayerForUserID(Event:GetInt("userid", 0)))
