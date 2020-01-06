@@ -8,6 +8,10 @@ local IN_USE = 5 -- bit of IN_USE for cmd.buttons
 local IsUsed = false
 
 function DoorSpam(pCmd, pSendPacket)
+    if Utils.IsLocalAlive() == false then 
+        return
+    end
+
     if InputSys.IsKeyDown(Menu.GetInt("iDoorSpamKey")) then
         if (IsUsed) then
           pCmd.buttons = SetBit(pCmd.buttons, IN_USE)
