@@ -55,7 +55,7 @@ local function BHopAddBind(pCmd, pSendPacket)
 
     if (Tick == 0) then
         LocalOrigin_Old = LocalOrigin
-        Tick = IgonreTicks
+        Tick = IgonreTicks + 1
     end
     Tick = Tick - 1
 end   
