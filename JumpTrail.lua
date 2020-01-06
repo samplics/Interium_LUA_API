@@ -11,7 +11,7 @@ local fFlags_Offset = Hack.GetOffset("DT_BasePlayer", "m_fFlags")
 local ON_GROUND = 0
 local LocalOrigin_Old = Vector.new(0, 0, 0)
 
-local IgonreTicks = 4 -- Optimize (More == Better FPS)
+local IgnoreTicks = 4 -- Optimize (More == Better FPS)
 local Tick = 0
 
 local function BHopAddBind(pCmd, pSendPacket)
