@@ -49,6 +49,10 @@ local function DrawCH(x, y, size)
 end
 
 local function Render()
+    if Utils.IsLocal() == false then 
+        return
+    end
+
     DrawCH(Screen.x / 2, Screen.y / 2, 600) 
 end
 
