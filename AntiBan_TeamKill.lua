@@ -30,9 +30,13 @@ function FireEventClientSideThink(Event)
 	end 
 
 	if (Event:GetName() == "player_hurt") then
-        local IsLocalShot = IEngine.GetPlayerForUserID(Event:GetInt("attacker", 0)) == IEngine.GetLocalPlayer()
-		if IsLocalShot then
-			local Player = IEntityList.GetPlayer(IEngine.GetPlayerForUserID(Event:GetInt("userid", 0)))
+		local attacker_EntInd = IEngine.GetPlayerForUserID(Event:GetInt("attacker", 0))
+		local userid_EntInd = IEngine.GetPlayerForUserID(Event:GetInt("userid", 0))
+	
+        local IsLocalShot = attacker_EntInd == IEngine.GetLocalPlayer()
+		local IsLocalIsTarget = userid_EntInd == IEngine.GetLocalPlayer()
+		if (IsLocalShot and not IsLocalIsTarget) then
+			local Player = IEntityList.GetPlayer(userid_EntInd)
 			if (Player and Player:GetClassId() == 40 and Player:IsTeammate()) then 
 				local Health = Player:GetPropInt(iHealth_Offset)
 				if (Health > Event:GetInt("dmg_health", 0)) then
