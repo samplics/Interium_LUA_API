@@ -3,18 +3,18 @@ local iHealth_Offset = Hack.GetOffset("DT_BasePlayer", "m_iHealth") -- Get m_iHe
 local vOrigin_Offset = Hack.GetOffset("DT_BaseEntity", "m_vecOrigin") -- Get m_vecOrigin offset
 
 local function RenderHealth()
-    if Utils.IsLocal() == false then 
+    if (not Utils.IsLocal()) then 
         return
     end
 
     for i = 1, 64 do
-        if i == IEngine.GetLocalPlayer() then
+        if (i == IEngine.GetLocalPlayer()) then
             goto continue
         end
 
         local Player = IEntityList.GetPlayer(i) 
 
-        if Player and Player:GetClassId() == 40 and Player:IsAlive() and Player:IsDormant() == false then 
+        if (Player and Player:GetClassId() == 40 and Player:IsAlive() and not Player:IsDormant()) then 
             local PlayerHealth = Player:GetPropInt(iHealth_Offset) 
             local PlayerOrigin = Player:GetPropVector(vOrigin_Offset) 
 
@@ -23,7 +23,7 @@ local function RenderHealth()
             col.r = col.r + (100 - PlayerHealth) * 2.55
 
             local ToScreen = Vector.new(0, 0, 0)
-            if Math.WorldToScreen(PlayerOrigin, ToScreen) == true then
+            if (Math.WorldToScreen(PlayerOrigin, ToScreen) == true) then
                 Render.Text_TahomaBd(tostring(PlayerHealth), ToScreen.x, ToScreen.y, 18, col, true, true)
             end
         end
