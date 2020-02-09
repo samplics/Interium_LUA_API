@@ -18,8 +18,10 @@ function InitFont()
 		
 		-- Change Hack Fonts (0 = Default, 1 = Second, 2 = Icon, 3 = Roboto, 4 = MenuMain, 5 = MenuTabMain, 6 = MenuTabIcon)
 		Render.ChangeHackFont(0, PathToFont, 14) -- Change HackFont (Default) to *PathToFont* with size 14 (this size is quality of load)
+		Render.ChangeHackFont(1, PathToFont, 14) -- Change HackFont (Second) to *PathToFont* with size 14 (this size is quality of load)
+		Render.ChangeHackFont(3, PathToFont, 14) -- Change HackFont (Roboto) to *PathToFont* with size 14 (this size is quality of load)
 		Render.ChangeHackFont(4, PathToFont, 14) -- Change HackFont (MenuMain) to *PathToFont* with size 14 (this size is quality of load)
-
+		Render.ChangeHackFont(5, PathToFont, 14) -- Change HackFont (MenuTabMain) to *PathToFont* with size 14 (this size is quality of load)
 		FontInited = true
 	end
 end
