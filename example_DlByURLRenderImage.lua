@@ -1,3 +1,5 @@
+Render.DelImage("ImageNameXd")
+
 local ImageInited = false
 function InitImage()
 	if (not ImageInited) then
@@ -17,6 +19,6 @@ function Draw()
 	InitImage()
 	
 	-- Render Image
-	Render.RenderImage("ImageNameXd", 300, 500, 1000, 1000)
+	Render.RenderImage("ImageNameXd", 300, 500, 1000, 1000, Color.new(255, 255, 255, 255), 0, 0, 1, 1) 
 end
 Hack.RegisterCallback("PaintTraverse", Draw)
