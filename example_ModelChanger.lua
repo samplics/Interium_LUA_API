@@ -1,8 +1,12 @@
+Utils.AttachConsole()
+
 function FindMDL(pFilePath)
 	local sFilePath = GetString(pFilePath)
 
-	if (sFilePath:find("v_knife", 0)) then -- find all viewmodel knifes
-		SetString(pFilePath, "models/weapons/v_minecraft_pickaxe.mdl") -- Set Knife Model to Minecraft Pickaxe (need model file in this path)
+	if (sFilePath:find("v_knife", 0)) then
+		Utils.ConsolePrint(string.format("%s %s", sFilePath, "\n"));
+
+		SetString(pFilePath, "models/weapons/v_minecraft_pickaxe.mdl")
 	end
 end
 Hack.RegisterCallback("FindMDL", FindMDL)
