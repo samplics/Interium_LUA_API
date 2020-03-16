@@ -24,7 +24,7 @@ local function RenderHealth()
 
             local ToScreen = Vector.new(0, 0, 0)
             if (Math.WorldToScreen(PlayerOrigin, ToScreen) == true) then
-                Render.Text_TahomaBd(tostring(PlayerHealth), ToScreen.x, ToScreen.y, 18, col, true, true)
+                Render.Text_1(tostring(PlayerHealth), ToScreen.x, ToScreen.y, 18, col, true, true)
             end
         end
 
