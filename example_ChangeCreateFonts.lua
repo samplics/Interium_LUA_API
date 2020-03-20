@@ -1,4 +1,5 @@
 local ISurfaceFont = 0 -- Not Inited, CreateFont_ creating Font to this Var
+Render.DelFont("FontNameLol")
 
 local PathToFont = "C:\\Cramaten.ttf"
 local FontName = "Cramaten"
