@@ -1,28 +1,45 @@
 local ISurfaceFont = 0 -- Do not Init, CreateFont_ creating Font to this Var
 
-local PathToFont = "C:\\verdana.ttf"
+local PathToFont = "C:\\Cramaten.ttf"
+local FontName = "Cramaten"
 
+local HackFontPlace = 0
 local FontInited = false
 function InitFont()
 	if (not FontInited) then
-		-- Init Render. Font
+
 		if (not Render.IsFont("FontNameLol")) then
+		-- Init Render. Font
 			Render.LoadFont("FontNameLol", PathToFont, 32)
 		end
 		
-		-- Create ISurface. Font
-		ISurfaceFont = ISurface.CreateFont_()
+		if (not ISurfaceFont) then
+			-- Create ISurface. Font
+			ISurfaceFont = ISurface.CreateFont_()
+			-- Init ISurface. Font
+			ISurface.SetFontGlyphSet(ISurfaceFont, FontName, 32, 600, 0, 0, 0x080, 0, 0)
+		end
 		
-		-- Init ISurface. Font
-		ISurface.SetFontGlyphSet(ISurfaceFont, "Tahoma", 32, 600, 0, 0, 0x080, 0, 0)
-		
+
 		-- Change Hack Fonts (0 = Default, 1 = Second, 2 = Icon, 3 = Roboto, 4 = MenuMain, 5 = MenuTabMain, 6 = MenuTabIcon)
-		Render.ChangeHackFont(0, PathToFont, 14) -- Change HackFont (Default) to *PathToFont* with size 14 (this size is quality of load)
-		Render.ChangeHackFont(1, PathToFont, 14) -- Change HackFont (Second) to *PathToFont* with size 14 (this size is quality of load)
-		Render.ChangeHackFont(3, PathToFont, 14) -- Change HackFont (Roboto) to *PathToFont* with size 14 (this size is quality of load)
-		Render.ChangeHackFont(4, PathToFont, 14) -- Change HackFont (MenuMain) to *PathToFont* with size 14 (this size is quality of load)
-		Render.ChangeHackFont(5, PathToFont, 14) -- Change HackFont (MenuTabMain) to *PathToFont* with size 14 (this size is quality of load)
-		FontInited = true
+		if (HackFontPlace == 0) then
+			Render.ChangeHackFont(0, PathToFont, 14) -- Change HackFont (Default) to *PathToFont* with size 14 (this size is quality of load)
+		elseif (HackFontPlace == 1) then
+			Render.ChangeHackFont(1, PathToFont, 14) -- Change HackFont (Second) to *PathToFont* with size 14 (this size is quality of load)
+		--elseif (HackFontPlace == 2) then
+		--	Render.ChangeHackFont(2, PathToFont, 14)
+		elseif (HackFontPlace == 3) then
+			Render.ChangeHackFont(3, PathToFont, 14) -- Change HackFont (Roboto) to *PathToFont* with size 14 (this size is quality of load)
+		elseif (HackFontPlace == 4) then
+			Render.ChangeHackFont(4, PathToFont, 14) -- Change HackFont (MenuMain) to *PathToFont* with size 14 (this size is quality of load)
+		elseif (HackFontPlace == 5) then
+			Render.ChangeHackFont(5, PathToFont, 14) -- Change HackFont (MenuTabMain) to *PathToFont* with size 14 (this size is quality of load)
+		end
+		
+		HackFontPlace = HackFontPlace + 1
+		if (HackFontPlace > 5) then
+			FontInited = true
+		end
 	end
 end
 
@@ -30,9 +47,9 @@ function Draw()
 	InitFont()
 
 	-- Clasic Hack Render (Better)
-	Render.Text("Text1", 100, 100, 32, Color.new(255, 0, 0, 255), true, true, "FontNameLol")
+	Render.Text("Text1", 100, 100, 32, Color.new(255, 255, 255, 255), true, true, "FontNameLol")
 	
 	-- ISurface Render 
-	ISurface.DrawText(ISurfaceFont, 150, 150, Color.new(255, 0, 0, 255), 0, "Text2")
+	ISurface.DrawText(ISurfaceFont, 150, 150, Color.new(255, 255, 255, 255), 0, "Text2")
 end
 Hack.RegisterCallback("PaintTraverse", Draw)
