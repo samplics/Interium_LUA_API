@@ -14,7 +14,7 @@ function InitFont()
 			Render.LoadFont("FontNameLol", PathToFont, 32)
 		end
 		
-		if (not ISurfaceFont) then
+		if (ISurfaceFont == 0) then
 			-- Create ISurface. Font
 			ISurfaceFont = ISurface.CreateFont_()
 			-- Init ISurface. Font
