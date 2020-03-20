@@ -1,4 +1,4 @@
-local ISurfaceFont = 0 -- Do not Init, CreateFont_ creating Font to this Var
+local ISurfaceFont = 0 -- Not Inited, CreateFont_ creating Font to this Var
 
 local PathToFont = "C:\\Cramaten.ttf"
 local FontName = "Cramaten"
@@ -9,7 +9,7 @@ function InitFont()
 	if (not FontInited) then
 
 		if (not Render.IsFont("FontNameLol")) then
-		-- Init Render. Font
+			-- Init Render. Font
 			Render.LoadFont("FontNameLol", PathToFont, 32)
 		end
 		
