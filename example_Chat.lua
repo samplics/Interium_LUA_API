@@ -5,7 +5,7 @@ local ChatText = ""
 function GetChat(msg_data)
 	local SpaceIdx = 0
 	for i = 1, string.len(msg_data) do
-		if (string.byte(string.sub(msg_data, i, i)) == 34) then
+		if (string.byte(string.sub(msg_data, i, i)) == 34) then -- lmao, idk why lua cant fint " ", 34 = char byte
 			SpaceIdx = i
 			break
 		end
